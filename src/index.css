@@ -1,0 +1,446 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* @import "flowbite/dist/flowbite.css"; */
+
+/* body{
+  background-color: #ecedef;
+} */
+body {
+  /* margin-top: 10rem; */
+  background-image: linear-gradient(to top,rgba(0, 0, 0, 0.692), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("backg2.jpg");
+  background-color: #000000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  /* height: 100vh; */
+}
+
+/* customizing scrollbar  */
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+::-webkit-scrollbar {
+  height: 0rem; 
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #00000046;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff62002e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9c3c01;
+}
+ 
+@font-face {
+  font-family: "WHOA Spine Minimum";
+  src: url("https://assets.codepen.io/174183/WHOA-Variable-Spine-v0.3.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "WHOA Top Minimum";
+  src: url("https://assets.codepen.io/174183/WHOA-Variable-Top-v0.3.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+h1 {
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.874);
+  /* font-size: 1rem; */
+}
+
+h1 span {
+  display: block;
+  /* cursor: url("https://assets.codepen.io/174183/spiral_1.png"), auto; */
+  font-family: "WHOA Top Minimum";
+  font-variation-settings: "hrzn" 0, "vert" 0, "rota" 0, "zoom" 0;
+  font-weight: normal;
+  /* font-size: 6rem; */
+  position: relative;
+  line-height: 0.5;
+  /* margin: 0 0 0 0; */
+}
+
+
+
+
+
+:root {
+  --color-background: #000119;
+  --stroke-width: calc(1em / 16);
+  --font-size: 2rem;
+  --font-weight: 700;
+  --letter-spacing: calc(1em / 8);
+}
+
+h2 {
+  background-clip: text;
+  background-image: linear-gradient(to right, #fecbb5, #f0682e);
+  /* background-image: linear-gradient(to right, white); */
+  color: var(--color-background);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  letter-spacing: var(--letter-spacing);
+  padding: calc(--stroke-width / 2);
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: var(--stroke-width);
+}
+
+
+.stars, .twinkling, .clouds {
+	position:absolute;
+	display:block;
+	top:0; bottom:0;
+	left:0; right:0;
+	width:100%; height:100%;
+}
+
+.stars {
+	z-index: 0;
+	/* background: #000 url('https://i.imgur.com/YKY28eT.png') repeat top center; */
+}
+
+/* .twinkling{
+	z-index: 0;
+	background:transparent url('https://i.imgur.com/XYMF4ca.png') repeat top center;
+	animation: move-twink-back 200s linear infinite;
+} */
+
+/* .clouds{
+	z-index: 2;
+    background:transparent url('https://i.imgur.com/mHbScrQ.png') repeat top center;
+	animation: move-clouds-back 200s linear infinite;
+} */
+
+@keyframes move-twink-back {
+	from {background-position:0 0;}
+	to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+	from {background-position:0 0;}
+	to {background-position:10000px 0;}
+}
+
+
+.glow-half-circle {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: radial-gradient(ellipse at top, rgba(255, 153, 0, 0.4), rgba(0, 0, 0, 0.95));
+  border-top-left-radius: 100% 100%;
+  border-top-right-radius: 100% 100%;
+  z-index: 0;
+  box-shadow:
+    inset 0 -190px 120px rgb(0, 0, 0), /* dark bottom fade */
+    inset 0 50px 100px #9a4019, /* soft inner top glow */
+    0 -30px 250px rgba(255, 102, 0, 0.6); /* top outer glow only */
+  pointer-events: none;
+  /* animation: blink-glow 3s ease-in-out infinite; */
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes blink-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.6; }
+}
+
+
+
+
+
+
+/* Button base style */
+.glow-on-hover {
+  width: auto;
+  /* height: 40px; */
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 50px;
+}
+
+/* The glowing effect in the ::before pseudo-element */
+.glow-on-hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(45deg, #ff0000, #ff7300, #ffcc00, #ff0000);
+  background-size: 400%;
+  filter: blur(5px);
+  border-radius: 50px;
+  z-index: -1;
+  animation: glowing 20s linear infinite;
+  opacity: 1; /* Always visible */
+}
+
+/* This pseudo-element sits above the glowing layer and gives the button a consistent background */
+.glow-on-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  border-radius: 50px;
+  z-index: -1;
+}
+
+/* Active state styling */
+.glow-on-hover:active {
+  color: #000;
+}
+
+/* Animation definition */
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+
+
+
+
+
+
+
+
+.buttons {
+  /* margin-top: 50px; */
+  text-align: center;
+  border-radius: 30px;
+}
+.blob-btn {
+  z-index: 1;
+  position: relative;
+  padding: 14px 35px;
+  text-align: center;
+  /* text-transform: uppercase; */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: color 0.5s;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.blob-btn:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #2e0e0a;
+  border-radius: 30px;
+}
+.blob-btn:after {
+  content: "";
+  z-index: -2;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s 0.2s;
+  border-radius: 30px;
+}
+.blob-btn:hover {
+  color: #fff;
+  border-radius: 30px;
+}
+.blob-btn:hover:after {
+  transition: all 0.3s;
+  left: 0;
+  top: 0;
+  border-radius: 30px;
+}
+.blob-btn__inner {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: #f84f01;
+}
+.blob-btn__blobs {
+  position: relative;
+  display: block;
+  height: 100%;
+  filter: url('#goo');
+}
+.blob-btn__blob {
+  position: absolute;
+  top: 2px;
+  width: 25%;
+  height: 100%;
+  background: #2e0e0a;
+  border-radius: 100%;
+  transform: translate3d(0, 150%, 0) scale(1.7);
+  transition: transform 0.45s;
+}
+@supports (filter: url('#goo')) {
+  transform: translate3d(0, 150%, 0) scale(1.4);
+}
+.blob-btn__blob:nth-child(1) {
+  left: 0%;
+  transition-delay: 0s;
+}
+.blob-btn__blob:nth-child(2) {
+  left: 30%;
+  transition-delay: 0.08s;
+}
+.blob-btn__blob:nth-child(3) {
+  left: 60%;
+  transition-delay: 0.16s;
+}
+.blob-btn__blob:nth-child(4) {
+  left: 90%;
+  transition-delay: 0.24s;
+}
+.blob-btn:hover .blob-btn__blob {
+  transform: translateZ(0) scale(1.7);
+}
+@supports (filter: url('#goo')) {
+  transform: translateZ(0) scale(1.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card {
+  color: white;
+  position: relative;
+  font-family: sans-serif;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  background-color: #fab5704c;
+  position: absolute;
+}
+
+.card::before {
+  border-radius: 50%;
+  /* width: 6rem;
+  height: 6rem; */
+  top: 30%;
+  right: 7%;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  /* height: 3rem; */
+  top: 8%;
+  right: 5%;
+  /* border: 1px solid; */
+}
+
+.card .box {
+  /* width: 11.875em;
+  height: 15.875em; */
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 0.7rem;
+  transition: all ease 0.3s;
+}
+
+.card .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card .box .title {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.card .box div strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.card .box div p {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.card .box div span {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.card .box div span:nth-child(3) {
+  font-weight: 500;
+  margin-right: 0.2rem;
+}
+
+.card .box:hover {
+  box-shadow: 0px 0px 20px 1px #ffbb763f;
+  border: 1px solid rgba(255, 255, 255, 0.454);
+}
