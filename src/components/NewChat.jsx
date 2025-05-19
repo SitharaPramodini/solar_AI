@@ -150,17 +150,13 @@ export default function BuildHubLandingPage() {
   };
   
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageVariants}
-      transition={{ duration: 1.5, ease: "easeInOut" }}
-      // transition={pageTransition}
-      className="min-h-screen overflow-y-hidden"
-    >
+    
       <div className="relative min-h-screen max-h-screen bg-gradient-to-br from-[#0000008d] via-[#00000078] to-orange-900/30">
         {/* Content container */}
+
+
+
+    
         <div className="relative z-10 mx-auto max-w-6xl px-4 py-6">
           {/* Header */}
           <header className="flex items-center justify-between">
@@ -181,6 +177,16 @@ export default function BuildHubLandingPage() {
               <span className="text-orange-400">Connecting to service...</span>
             </div>
           )} */}
+
+<motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={pageVariants}
+      transition={{ duration: 1.5, ease: "easeInOut" }}
+      // transition={pageTransition}
+      className="overflow-y-hidden"
+    >
 
           {/* Main content */}
           <main className="flex flex-col items-center justify-center text-center ">
@@ -325,8 +331,15 @@ export default function BuildHubLandingPage() {
               </div>
             ) : null}
           </main>
+
+          </motion.div>
+
+
         </div>
+
+   
+
       </div>
-    </motion.div>
+    
   );
 }

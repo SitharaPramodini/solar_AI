@@ -72,7 +72,7 @@ export default function VetraLandingPage() {
       <main className="flex-1 container mx-auto px-4 flex flex-col items-center justify-center text-center pt-16 pb-32 relative z-10">
         {/* New version notification */}
         <div className="bg-black/40 glow-on-hover backdrop-blur-sm border border-gray-700 rounded-full px-4 py-2 mb-8 inline-flex items-center">
-          <span className="text-gray-300 text-sm ">New AI Update Released! Learn More</span>
+          <span className="text-gray-300 text-sm ">New AI for Solar is Released! Learn More</span>
           {/* <div className="ml-2 bg-orange-500 text-white text-xs rounded-full p-1">
             →
           </div> */}
